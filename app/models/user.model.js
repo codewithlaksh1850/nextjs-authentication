@@ -45,7 +45,7 @@ UserSchema.methods.isPasswordCorrect = async function(password) {
 UserSchema.methods.generateAccessToken = function () {
     const payload = {
         _id: this._id,
-        email: this._email
+        email: this.email
     };
 
     return jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET, {
